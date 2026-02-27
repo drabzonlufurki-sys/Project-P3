@@ -1,0 +1,113 @@
+<header>
+  <h1>Ledenregistratie en -beheer</h1>
+  <p>Registreren, profiel bijwerken, en adminbeheer.</p>
+</header>
+
+<main>
+  <section class="card">
+    <div class="tabs" role="tablist">
+      <button class="tabbtn active" data-tab="register">Registreren</button>
+      <button class="tabbtn" data-tab="member">Mijn profiel</button>
+      <button class="tabbtn" data-tab="admin">Beheerder</button>
+    </div>
+
+    <div class="panel" id="tab-register">
+      <h2>Nieuwe registratie</h2>
+      <div class="row two">
+        <div>
+          <label for="reg_name">Naam</label>
+          <input id="reg_name" placeholder="Bijv. Jan Jansen" />
+        </div>
+        <div>
+          <label for="reg_phone">Telefoonnummer</label>
+          <input id="reg_phone" placeholder="Bijv. +31 6 12345678" />
+        </div>
+      </div>
+      <label for="reg_email">E-mailadres</label>
+      <input id="reg_email" placeholder="Bijv. jan@voorbeeld.nl" />
+      <div class="actions">
+        <button class="primary" id="btn_register">Registreren</button>
+        <button class="danger" id="btn_clear_all">Alles wissen</button>
+      </div>
+      <div class="notice" id="reg_notice">Vul je gegevens in om te registreren.</div>
+    </div>
+
+    <div class="panel" id="tab-member" style="display:none;">
+      <h2>Mijn profiel</h2>
+      <div id="login_section">
+        <div class="row two">
+          <div>
+            <label for="login_email">Inloggen met e-mailadres</label>
+            <input id="login_email" placeholder="jij@voorbeeld.nl" />
+          </div>
+          <div style="display:flex; align-items:flex-end;">
+            <button class="primary" id="btn_login">Inloggen</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="profile_box" style="margin-top: 10px; display:none;">
+        <div class="row two">
+          <div><label for="prof_name">Naam</label><input id="prof_name" /></div>
+          <div><label for="prof_phone">Telefoonnummer</label><input id="prof_phone" /></div>
+        </div>
+        <label for="prof_email">E-mailadres (wijzigen)</label>
+        <input id="prof_email" />
+        <div class="actions">
+          <button class="ok" id="btn_profile_save">Profiel opslaan</button>
+          <button id="btn_logout" class="danger">Uitloggen</button>
+        </div>
+        <div class="notice" id="profile_notice">Update je gegevens burada.</div>
+      </div>
+    </div>
+
+    <div class="panel" id="tab-admin" style="display:none;">
+      <h2>Beheerder</h2>
+      <div id="admin_login_box">
+        <div class="row two">
+          <div><label for="admin_user">Gebruikersnaam</label><input id="admin_user" placeholder="admin" /></div>
+          <div><label for="admin_pass">Wachtwoord</label><input id="admin_pass" type="password" placeholder="admin123" /></div>
+        </div>
+        <div class="actions"><button class="primary" id="btn_admin_login">Inloggen</button></div>
+      </div>
+      <div id="admin_panel" style="display:none;">
+        <div class="actions">
+          <button id="btn_admin_logout">Uitloggen</button>
+          <button id="btn_export" class="ok">Export JSON (inc. QR)</button>
+        </div>
+        <div style="margin-top: 10px;">
+          <label for="admin_search">Zoeken</label>
+          <input id="admin_search" placeholder="Typ om te filteren..." />
+        </div>
+        <div style="overflow:auto; margin-top: 10px;">
+          <table>
+            <thead>
+              <tr><th>Naam</th><th>E-mail</th><th>Telefoon</th><th>Acties</th></tr>
+            </thead>
+            <tbody id="admin_table_body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Status</h2>
+    <div class="notice">
+      <div><span class="pill">Leden</span> <span class="mono" id="count_members">0</span></div>
+      <div style="margin-top:8px;"><span class="pill">Admin</span> <span class="mono" id="admin_state">uitgelogd</span></div>
+    </div>
+  </aside>
+</main>
+
+<div id="qr_modal" class="qr-modal">
+  <div class="qr-box">
+    <div class="qr-header">
+      <div><div class="qr-title">Lid QR-code</div><div class="qr-subtitle" id="qr_member_name">Scan info</div></div>
+      <button id="qr_close" class="qr-close">✕</button>
+    </div>
+    <div class="qr-content"><img id="qr_img" alt="QR code" /></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>

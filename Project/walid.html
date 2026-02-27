@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beheer Dashboard</title>
+<link rel="stylesheet" href="walid.css">
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="menu-btn" id="menuBtn">☰</div>
+    <h2>Beheer Dashboard</h2>
+</div>
+
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li>Dashboard</li>
+        <li>Leden</li>
+        <li>Lessen</li>
+        <li>Reserveringen</li>
+        <li>Instellingen</li>
+    </ul>
+</div>
+
+<div class="main" id="main">
+
+    <div class="card-container">
+        <div class="card">
+            <h3>Totaal Leden</h3>
+            <p>152</p>
+        </div>
+        <div class="card">
+            <h3>Geplande Lessen</h3>
+            <p>2</p>
+        </div>
+        <div class="card">
+            <h3>Actieve Reserveringen</h3>
+            <p>47</p>
+        </div>
+    </div>
+
+    <h2>Geplande Lessen</h2>
+    <table>
+        <tr>
+            <th>Les</th>
+            <th>Datum</th>
+            <th>Totaal Plekken</th>
+            <th>Beschikbaar</th>
+            <th>Actie</th>
+        </tr>
+        <tr>
+            <td>Yoga</td>
+            <td>20-02-2026</td>
+            <td class="total">20</td>
+            <td class="available">5</td>
+            <td>
+                <button class="minus">−</button>
+                <button class="plus">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Pilates</td>
+            <td>22-02-2026</td>
+            <td class="total">15</td>
+            <td class="available">3</td>
+            <td>
+                <button class="minus">−</button>
+                <button class="plus">+</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<script src="walid.js"></script>
+</body>
+</html>
